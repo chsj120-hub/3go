@@ -1,0 +1,25 @@
+{
+  "name": "우리동네 3GO × 동네네컷 원정대",
+  "short_name": "우리동네 3GO",
+  "description": "이웃을 살피GO, 먼저 인사하GO, 안심으로 이어지GO — 공공데이터·온디바이스 AI 기반 0원 오픈소스 마을 안심망 & 골목 상생 PWA",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8FAFC",
+  "theme_color": "#246BEB",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "regionName": "광주광역시 광산구 첨단",
+    "regionCode": "29200",
+    "snapshotUpdatedAt": "2026-11-25T09:00:00+09:00",
+    "source": "공공데이터포털(data.go.kr) 광주광역시 6대 표준 스키마 스냅샷"
+  },
+  "parks": {
+    "datasetLabel": "광주광역시 도시공원정보 표준데이터",
+    "provider": "광주광역시 / 공공데이터포털",
+    "items": [
+      {
+        "manageNo": "29200-00011",
+        "parkNm": "쌍암공원",
+        "parkSe": "근린공원",
+        "rdnmadr": "광주광역시 광산구 첨단중앙로182번길 39",
+        "latitude": 35.222228,
+        "longitude": 126.844251,
+        "parkAr": 146850,
+        "mvmFclty": "산책로, 야외운동기구, 농구장",
+        "cnvnncFclty": "수변데크, 화장실, 주차장, 쉼터",
+        "institutionNm": "광주광역시 광산구청"
+      },
+      {
+        "manageNo": "29200-00012",
+        "parkNm": "응암공원",
+        "parkSe": "근린공원",
+        "rdnmadr": "광주광역시 광산구 임방울대로 673-18",
+        "latitude": 35.216895,
+        "longitude": 126.832033,
+        "parkAr": 82410,
+        "mvmFclty": "지압산책로, 축구장, 배드민턴장",
+        "cnvnncFclty": "첨단도서관 연계 쉼터, 음수대",
+        "institutionNm": "광주광역시 광산구청"
+      },
+      {
+        "manageNo": "29200-00018",
+        "parkNm": "첨단생활체육공원",
+        "parkSe": "체육공원",
+        "rdnmadr": "광주광역시 광산구 첨단강변로 76",
+        "latitude": 35.210192,
+        "longitude": 126.851544,
+        "parkAr": 195300,
+        "mvmFclty": "파크골프장, 영산강 자전거길, 풋살장",
+        "cnvnncFclty": "강변 전망대, 화장실, 주차장",
+        "institutionNm": "광주광역시 광산구청"
+      }
+    ]
+  },
+  "safety": {
+    "datasetLabel": "광주광역시 생활안전지도·보안등·CCTV",
+    "provider": "행정안전부 생활안전지도 / 광주광역시",
+    "items": [
+      {
+        "fcltyId": "SAFE-GS-001",
+        "fcltySe": "방범CCTV·LED보안등",
+        "rdnmadr": "광주광역시 광산구 쌍암동 첨단중앙로182번길 일대",
+        "latitude": 35.2216,
+        "longitude": 126.8439,
+        "instlPurps": "야간 안심 산책로 및 귀갓길 방범",
+        "nightSafetyGrade": "안심(1등급)",
+        "cctvCount": 6,
+        "lampStatus": "정상점등"
+      },
+      {
+        "fcltyId": "SAFE-GS-002",
+        "fcltySe": "안심비상벨·보안등",
+        "rdnmadr": "광주광역시 광산구 월계동 임방울대로 680번길",
+        "latitude": 35.2173,
+        "longitude": 126.8344,
+        "instlPurps": "초등학생 통학로 및 어르신 산책로 안전",
+        "nightSafetyGrade": "안심(1등급)",
+        "cctvCount": 4,
+        "lampStatus": "정상점등"
+      },
+      {
+        "fcltyId": "SAFE-GS-003",
+        "fcltySe": "보안등 정비 민원 구역",
+        "rdnmadr": "광주광역시 광산구 산월동 첨단강변로 이면골목",
+        "latitude": 35.2138,
+        "longitude": 126.8492,
+        "instlPurps": "야간 조도 개선 및 3GO 순찰 우선 구역",
+        "nightSafetyGrade": "주의(3등급)",
+        "cctvCount": 1,
+        "lampStatus": "조도개선요청"
+      }
+    ]
+  },
+  "merchants": {
+    "datasetLabel": "소상공인시장진흥공단 상가(상권)정보 (반경 500m 보급소)",
+    "provider": "소상공인시장진흥공단",
+    "items": [
+      {
+        "bizesId": "MA010120260001",
+        "bizesNm": "쌍암 호수로스터스",
+        "indsLclsNm": "음식",
+        "indsMclsNm": "커피전문점/카페",
+        "rdnmAdr": "광주광역시 광산구 첨단중앙로182번길 22 1층",
+        "lat": 35.2214,
+        "lon": 126.8435,
+        "distanceMeters": 140,
+        "isSupplyPartner": true,
+        "couponBenefit": "전 음료 1,000원 즉시 할인"
+      },
+      {
+        "bizesId": "MA010120260002",
+        "bizesNm": "월계 수제식빵공방",
+        "indsLclsNm": "음식",
+        "indsMclsNm": "제과제빵점",
+        "rdnmAdr": "광주광역시 광산구 임방울대로 688 1층",
+        "lat": 35.2175,
+        "lon": 126.8352,
+        "distanceMeters": 290,
+        "isSupplyPartner": true,
+        "couponBenefit": "5,000원 이상 구매 시 단팥빵 1개 증정"
+      },
+      {
+        "bizesId": "MA010120260003",
+        "bizesNm": "첨단 추억의 떡볶이",
+        "indsLclsNm": "음식",
+        "indsMclsNm": "분식",
+        "rdnmAdr": "광주광역시 광산구 첨단중앙로 152 1층",
+        "lat": 35.2189,
+        "lon": 126.8428,
+        "distanceMeters": 210,
+        "isSupplyPartner": true,
+        "couponBenefit": "세트 메뉴 15% 할인 (포장 가능)"
+      },
+      {
+        "bizesId": "MA010120260004",
+        "bizesNm": "비수기 상생 첨단 E-존 PC방",
+        "indsLclsNm": "여가",
+        "indsMclsNm": "인터넷컴퓨터게임시설제공업",
+        "rdnmAdr": "광주광역시 광산구 첨단중앙로 124 3층",
+        "lat": 35.2162,
+        "lon": 126.8426,
+        "distanceMeters": 380,
+        "isSupplyPartner": true,
+        "couponBenefit": "어르신·청년 동반 방문 시 2시간 무료"
+      }
+    ]
+  },
+  "fire": {
+    "datasetLabel": "광주광역시 소방서·옥내소화전·대피소",
+    "provider": "소방청 / 광주광역시 소방안전본부",
+    "items": [
+      {
+        "stationId": "FIRE-GJ-29200-01",
+        "stationNm": "광주광산소방서 첨단119안전센터",
+        "fcltyType": "119안전센터",
+        "rdnmadr": "광주광역시 광산구 임방울대로825번길 16",
+        "telNo": "062-613-8761",
+        "latitude": 35.2208,
+        "longitude": 126.8459,
+        "hydrantCount": 42,
+        "elevatorSafetySupport": true
+      },
+      {
+        "stationId": "SHELTER-GJ-29200-02",
+        "stationNm": "첨단1동 행정복지센터 지진·호우 대피소",
+        "fcltyType": "민방위·재난대피소",
+        "rdnmadr": "광주광역시 광산구 첨단중앙로 160",
+        "telNo": "062-960-7761",
+        "latitude": 35.219527,
+        "longitude": 126.842364,
+        "hydrantCount": 8,
+        "elevatorSafetySupport": true
+      }
+    ]
+  },
+  "welfare": {
+    "datasetLabel": "한국사회보장정보원 노인일자리·복지시설",
+    "provider": "한국사회보장정보원 / 광주광역시 광산구",
+    "items": [
+      {
+        "fcltyCd": "WEL-29200-001",
+        "fcltyNm": "광산시니어클럽 (은퇴 장인 자가수리 기술단)",
+        "fcltyType": "노인일자리 전담기관",
+        "rdnmadr": "광주광역시 광산구 상무대로 201",
+        "telNo": "062-944-1690",
+        "latitude": 35.1404,
+        "longitude": 126.7942,
+        "seniorJobProgram": "방충망·수전·LED 자가수리 생활기술 강사 연계",
+        "agencyNm": "광주광역시 광산구청"
+      },
+      {
+        "fcltyCd": "WEL-29200-002",
+        "fcltyNm": "첨단종합사회복지관",
+        "fcltyType": "사회복지관",
+        "rdnmadr": "광주광역시 광산구 첨단중앙로181번길 42-6",
+        "telNo": "062-971-9500",
+        "latitude": 35.2219,
+        "longitude": 126.8404,
+        "seniorJobProgram": "세대통합 북클래스·마을 활력 닥터 협력 거점",
+        "agencyNm": "광주광역시 광산구청"
+      }
+    ]
+  },
+  "weather": {
+    "datasetLabel": "기상청 단기예보 및 미세먼지(에어코리아)",
+    "provider": "기상청 / 한국환경공단 에어코리아",
+    "data": {
+      "baseDate": "20261125",
+      "baseTime": "1400",
+      "nx": 58,
+      "ny": 75,
+      "stationName": "비아동",
+      "pty": 0,
+      "ptyLabel": "강수 없음",
+      "sky": 1,
+      "skyLabel": "맑음",
+      "t1h": 14.2,
+      "pm10Value": 32,
+      "pm10Grade": "보통",
+      "pm25Value": 15,
+      "isBadWeather": false,
+      "recommendedIndoorProgram": {
+        "id": "prog-1go-diy-repair",
+        "title": "은퇴 장인의 자가수리 학교 (방충망·LED 교체)",
+        "location": "광주 광산구 첨단1동 행정복지센터 1층 공유공방"
+      }
+    }
+  }
+}

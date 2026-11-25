@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" fill="none">
+  <rect width="192" height="192" rx="44" fill="#246BEB"/>
+  <rect x="16" y="16" width="160" height="160" rx="34" fill="#F8FAFC"/>
+  <circle cx="96" cy="84" r="46" fill="#047857"/>
+  <text x="96" y="96" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="34" font-weight="800">3GO</text>
+  <text x="96" y="156" text-anchor="middle" fill="#1E3A8A" font-family="sans-serif" font-size="18" font-weight="800">우리동네 3GO</text>
+</svg>

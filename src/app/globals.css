@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.75rem;
+
+  /* KRDS 대한민국 정부 디지털 디자인 시스템 고대비(WCAG AA 4.5:1+) 기본 토큰 */
+  --background: #f8fafc;
+  --foreground: #1d1d1d; /* KRDS Gray-90 (대비 16.5:1) */
+  --card: #ffffff;
+  --card-foreground: #1d1d1d;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1d;
+
+  /* KRDS 정부 신뢰 블루 & 3GO 고대비 시맨틱 컬러 */
+  --krds-primary: #246beb; /* KRDS Primary (대비 4.68:1) */
+  --krds-primary-dark: #1d56bc;
+  --krds-gray-90: #1d1d1d;
+  --krds-gray-70: #555555; /* KRDS Gray-70 (대비 7.4:1) */
+  --krds-gray-20: #d8d8d8;
+  --krds-focus: #246beb;
+
+  /* 3GO 단계별 시맨틱 컬러 (버튼·텍스트용 KRDS AA 4.5:1+ 보정 토큰 병행) */
+  --stage-1go: #10b981; /* 장식·아이콘 포인트 */
+  --stage-1go-aa: #047857; /* 흰 글씨 대비 5.48:1 (KRDS AA 통과) */
+  --stage-2go: #f97316; /* 장식·아이콘 포인트 */
+  --stage-2go-aa: #c2410c; /* 흰 글씨 대비 5.18:1 (KRDS AA 통과) */
+  --stage-3go: #1e3a8a; /* 흰 글씨 대비 10.35:1 (KRDS AAA 통과) */
+
+  --primary: #246beb;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1d1d1d;
+  --muted: #f1f5f9;
+  --muted-foreground: #555555;
+  --accent: #fff7ed;
+  --accent-foreground: #9a3412;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #d8dee6;
+  --input: #cbd5e1;
+  --ring: #246beb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-krds-primary: var(--krds-primary);
+  --color-stage-1go: var(--stage-1go);
+  --color-stage-1go-aa: var(--stage-1go-aa);
+  --color-stage-2go: var(--stage-2go);
+  --color-stage-2go-aa: var(--stage-2go-aa);
+  --color-stage-3go: var(--stage-3go);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: "Pretendard GOV", "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* KRDS 표준 기본 본문 17px, 행간 150%(1.5) */
+html {
+  font-size: 17px;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* [가+ 큰 글씨 모드] 활성화 시 전역 폰트 1.25배 확대 */
+html.large-text-mode {
+  font-size: 125%;
+}
+
+@keyframes slideUpSheet {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpSheet 0.22s ease-out forwards;
+}
+
+/* 가로 칩 탭 스크롤바 숨김 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* KRDS 명확한 포커스 표시 (키보드·보조기기 접근성) */
+  :focus-visible {
+    outline: 2px solid var(--krds-focus);
+    outline-offset: 2px;
+  }
+
+  body {
+    @apply bg-slate-200/70 text-foreground leading-[1.5] antialiased;
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+}
+
+/* AI 공식 회의록 PDF 저장/인쇄 전용 스타일 */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  header,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+}
