@@ -313,6 +313,7 @@ export async function getCommunityData(): Promise<CommunityPageData> {
         maxCapacity: row.maxCapacity,
         currentApplicants: row.currentApplicants,
         eventDateLabel: new Intl.DateTimeFormat('ko-KR', {
+          timeZone: 'Asia/Seoul',
           month: 'long',
           day: 'numeric',
           hour: '2-digit',

@@ -7,11 +7,23 @@ export type AppDatabase = NeonHttpDatabase<typeof schema>;
 let cachedDb: AppDatabase | null = null;
 
 /**
+ * Vercel Neon 통합 시 주입되는 DATABASE_URL 또는 POSTGRES_URL을 자동 탐지합니다.
+ */
+function resolveDatabaseUrl(): string {
+  return (
+    process.env.DATABASE_URL?.trim() ||
+    process.env.POSTGRES_URL?.trim() ||
+    process.env.POSTGRES_PRISMA_URL?.trim() ||
+    ''
+  );
+}
+
+/**
  * Neon Serverless PostgreSQL 연결 여부를 반환합니다.
  * 공모전 시연 중 DATABASE_URL이 미설정된 상태에서도 앱이 크래시되지 않도록 확인용 헬퍼를 제공합니다.
  */
 export function isDatabaseConfigured(): boolean {
-  return Boolean(process.env.DATABASE_URL && process.env.DATABASE_URL.trim().length > 0);
+  return resolveDatabaseUrl().length > 0;
 }
 
 /**
@@ -23,10 +35,10 @@ export function getDb(): AppDatabase {
     return cachedDb;
   }
 
-  const databaseUrl = process.env.DATABASE_URL;
+  const databaseUrl = resolveDatabaseUrl();
   if (!databaseUrl) {
     throw new Error(
-      'DATABASE_URL 환경 변수가 설정되지 않았습니다. .env.local 파일에 Neon PostgreSQL 연결 문자열을 입력해 주세요.',
+      'DATABASE_URL(또는 POSTGRES_URL) 환경 변수가 설정되지 않았습니다. .env.local 파일에 Neon PostgreSQL 연결 문자열을 입력해 주세요.',
     );
   }
 

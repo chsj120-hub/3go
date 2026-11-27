@@ -22,12 +22,12 @@ export function AppHeader() {
       <div className="flex items-center justify-between gap-2 px-3.5 py-2.5">
         <Link
           href="/"
-          className="flex min-h-12 flex-col justify-center rounded-xl px-1"
+          className="flex min-h-12 shrink-0 flex-col justify-center rounded-xl px-0.5"
         >
-          <span className="text-[11px] font-bold tracking-tight text-[#047857]">
+          <span className="whitespace-nowrap text-[10.5px] font-bold tracking-tighter text-[#047857]">
             살피GO · 인사하GO · 이어지GO
           </span>
-          <span className="text-lg font-bold leading-tight text-[#1D1D1D]">
+          <span className="whitespace-nowrap text-lg font-bold leading-tight text-[#1D1D1D]">
             우리동네 3GO
           </span>
         </Link>

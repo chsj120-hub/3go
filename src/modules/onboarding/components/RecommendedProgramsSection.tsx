@@ -31,6 +31,7 @@ function formatKoreanDate(iso: string): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return '일정 추후 공지';
   return new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul',
     month: 'long',
     day: 'numeric',
     weekday: 'short',

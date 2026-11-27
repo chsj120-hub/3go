@@ -30,6 +30,7 @@ export function MeetingMinutesModal({
   if (!open) return null;
 
   const todayLabel = new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
