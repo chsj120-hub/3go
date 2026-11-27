@@ -86,15 +86,15 @@ export function HomeDashboard({ initialData }: HomeDashboardProps) {
         </CardHeader>
 
         <CardContent className="space-y-3">
-          {/* 신규 자체 마스코트 슬롯 + 배지 레벨 바 */}
+          {/* 우리동네 3GO 다람쥐 마스코트 + 배지 레벨 바 */}
           <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-3">
-            <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-2xl border-2 border-dashed border-[#246BEB] bg-blue-50 text-center text-[#1E3A8A]">
-              <Sparkles className="h-4 w-4 text-[#246BEB]" aria-hidden="true" />
-              <span className="mt-0.5 text-[10px] font-bold leading-tight">
-                마스코트
-                <br />
-                예정
-              </span>
+            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-2xl border-2 border-emerald-300 bg-[#FFFDF8] shadow-xs">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/mascot/3go-squirrel.jpg"
+                alt="우리동네 3GO 다람쥐 마스코트"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="min-w-0 flex-1 space-y-1">
               <div className="flex items-center justify-between text-xs font-bold">

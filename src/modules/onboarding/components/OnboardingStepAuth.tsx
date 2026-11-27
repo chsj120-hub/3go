@@ -20,19 +20,29 @@ export function OnboardingStepAuth({
 
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-4">
-        <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-[#1E3A8A]">
-          <ShieldCheck className="h-3.5 w-3.5 text-[#246BEB]" aria-hidden="true" />
-          <span>설치 0원 · 개인정보 최소 수집</span>
-        </span>
-        <h3 className="mt-2 text-lg font-bold text-[#1D1D1D]">
-          {activeRegion.displayName} 이웃으로
-          <br />
-          3초 만에 시작해 보세요
-        </h3>
-        <p className="mt-1 text-sm text-[#555555]">
-          직함·나이 계급장 없는 가명 닉네임으로 안전하게 활동합니다.
-        </p>
+      <div className="flex items-center gap-3.5 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-4">
+        <div className="h-18 w-18 shrink-0 overflow-hidden rounded-2xl border-2 border-emerald-300 bg-[#FFFDF8] shadow-xs">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/mascot/3go-squirrel.jpg"
+            alt="인사하는 우리동네 3GO 다람쥐 마스코트"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <div className="min-w-0 flex-1">
+          <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-bold text-[#1E3A8A]">
+            <ShieldCheck className="h-3.5 w-3.5 text-[#246BEB]" aria-hidden="true" />
+            <span>설치 0원 · 개인정보 최소 수집</span>
+          </span>
+          <h3 className="mt-1.5 text-lg font-bold leading-snug text-[#1D1D1D]">
+            {activeRegion.displayName} 이웃으로
+            <br />
+            3초 만에 시작해 보세요
+          </h3>
+          <p className="mt-1 text-xs text-[#555555]">
+            직함·나이 계급장 없는 가명 닉네임으로 안전하게 활동합니다.
+          </p>
+        </div>
       </div>
 
       <div className="space-y-2.5">

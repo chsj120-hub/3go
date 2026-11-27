@@ -163,22 +163,40 @@ export async function renderFourCutCanvas({
   ctx.lineWidth = 20;
   ctx.strokeRect(20, 20, 1040, 1880);
 
-  // 2. 상단 KRDS 공식 지역 헤더 바
+  // 2. 상단 KRDS 공식 지역 헤더 바 + 다람쥐 마스코트 원형 배지
   ctx.fillStyle = '#246BEB';
   ctx.beginPath();
   ctx.roundRect(56, 56, 968, 176, 28);
   ctx.fill();
 
+  try {
+    const mascotImg = await loadImage('/mascot/3go-squirrel.jpg');
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(144, 144, 60, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.clip();
+    ctx.drawImage(mascotImg, 84, 84, 120, 120);
+    ctx.restore();
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.arc(144, 144, 60, 0, Math.PI * 2);
+    ctx.stroke();
+  } catch {
+    // 마스코트 미로드 시 텍스트만 정상 렌더링
+  }
+
   ctx.fillStyle = '#FFFFFF';
   ctx.textAlign = 'center';
-  ctx.font = 'bold 46px "Pretendard GOV", sans-serif';
-  ctx.fillText(`우리동네 3GO × ${region.displayName}`, 540, 134);
+  ctx.font = 'bold 44px "Pretendard GOV", sans-serif';
+  ctx.fillText(`우리동네 3GO × ${region.displayName}`, 580, 134);
 
   ctx.fillStyle = '#DBEAFE';
-  ctx.font = '600 28px "Pretendard GOV", sans-serif';
+  ctx.font = '600 26px "Pretendard GOV", sans-serif';
   ctx.fillText(
     `${spot.spotName} · ${POSE_MISSION_LABELS[spot.poseMissionType]} · ${createdAtLabel}`,
-    540,
+    580,
     190,
   );
 
