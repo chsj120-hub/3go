@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, CheckCircle2, MapPin, Sparkles, Users } from 'lucide-react';
+import { Calendar, CheckCircle2, MapPin, PlusCircle, Sparkles, Users } from 'lucide-react';
 import { ActionButton } from '@/components/ui/action-button';
 import { Badge } from '@/components/ui/badge';
 import { ChipTabs } from '@/components/ui/chip-tabs';
@@ -12,28 +12,32 @@ interface Stage2CalendarViewProps {
   appliedIds: Record<string, boolean>;
   applyingId: string | null;
   onApply: (item: CommunityClassItem) => void;
+  onOpenMeetupModal: () => void;
 }
 
 const MONTH_FILTERS = [
-  { value: 'ALL', label: '3~11월 전체' },
+  { value: 'ALL', label: '전체 캘린더' },
   { value: '3월', label: '3월 바둑' },
-  { value: '4월', label: '4월 마니또' },
+  { value: '4월', label: '4월 마니또·씨앗' },
   { value: '5월', label: '5월 PC방' },
   { value: '6월', label: '6월 한솥밥' },
   { value: '7~8월', label: '7~8월 체육' },
   { value: '9~10월', label: '9~10월 축제' },
+  { value: '분기·방학', label: '팝업 리페어' },
   { value: '11월', label: '11월 헌액식' },
 ];
 
 /**
  * 2GO 인사하GO 놀이 탭 뷰.
- * - 3~11월 세대 교차 멘토링 캘린더 (가명 닉네임 · 4~8주 시즌제 · 텃세 차단)
+ * - 3~11월 세대 교차 멘토링 캘린더 + 씨앗·모종 도서관 + 팝업 폐가전 리페어 카페
+ * - 주민 누구나 7대 크루 예시 템플릿으로 새 모임을 개설할 수 있는 버튼 제공
  */
 export function Stage2CalendarView({
   calendarItems,
   appliedIds,
   applyingId,
   onApply,
+  onOpenMeetupModal,
 }: Stage2CalendarViewProps) {
   const [monthFilter, setMonthFilter] = useState('ALL');
 
@@ -43,7 +47,7 @@ export function Stage2CalendarView({
 
   return (
     <div className="space-y-4">
-      {/* 세대 교차 운영 원칙 카드 */}
+      {/* 세대 교차 운영 원칙 & 새 모임 개설 CTA 카드 */}
       <div className="rounded-2xl border-2 border-orange-200 bg-orange-50/70 p-4">
         <Badge variant="orange">
           <Users className="h-3.5 w-3.5" aria-hidden="true" />
@@ -53,6 +57,16 @@ export function Stage2CalendarView({
           직함과 나이를 내려놓고 초등학생·청년·어르신이 함께 어울리는 3~11월
           골목 교류 캘린더입니다.
         </p>
+        <div className="mt-3">
+          <ActionButton
+            tone="stage2"
+            fullWidth
+            leadingIcon={<PlusCircle className="h-5 w-5" aria-hidden="true" />}
+            onClick={onOpenMeetupModal}
+          >
+            예시 템플릿으로 [새 모임 · 크루 개설하기]
+          </ActionButton>
+        </div>
       </div>
 
       {/* 월별 가로 스크롤 SEED ChipTabs */}

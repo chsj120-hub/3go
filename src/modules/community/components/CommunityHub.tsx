@@ -8,6 +8,7 @@ import type { CommunityClassItem, CommunityPageData } from '../types';
 import { ClassProposalModal } from './ClassProposalModal';
 import { Stage1ClassesView } from './Stage1ClassesView';
 import { Stage2CalendarView } from './Stage2CalendarView';
+import { Stage2MeetupModal } from './Stage2MeetupModal';
 import { cn } from '@/lib/utils';
 
 type CommunityStageTab = '1GO' | '2GO';
@@ -34,6 +35,7 @@ export function CommunityHub({ initialData }: CommunityHubProps) {
   const [appliedIds, setAppliedIds] = useState<Record<string, boolean>>({});
   const [applyingId, setApplyingId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMeetupModalOpen, setIsMeetupModalOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
   const handleApply = async (item: CommunityClassItem) => {
@@ -152,6 +154,7 @@ export function CommunityHub({ initialData }: CommunityHubProps) {
           appliedIds={appliedIds}
           applyingId={applyingId}
           onApply={(item) => void handleApply(item)}
+          onOpenMeetupModal={() => setIsMeetupModalOpen(true)}
         />
       )}
 
@@ -161,6 +164,16 @@ export function CommunityHub({ initialData }: CommunityHubProps) {
         onCreated={(created) => {
           setStage1List((prev) => [created, ...prev]);
           setActiveTab('1GO');
+        }}
+        onNotify={setToast}
+      />
+
+      <Stage2MeetupModal
+        open={isMeetupModalOpen}
+        onClose={() => setIsMeetupModalOpen(false)}
+        onCreated={(created) => {
+          setStage2List((prev) => [created, ...prev]);
+          setActiveTab('2GO');
         }}
         onNotify={setToast}
       />

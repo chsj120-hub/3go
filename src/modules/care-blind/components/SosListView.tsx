@@ -7,6 +7,7 @@ import {
   MapPin,
   PlusCircle,
   ShieldAlert,
+  Sparkles,
 } from 'lucide-react';
 import { ActionButton } from '@/components/ui/action-button';
 import { Badge } from '@/components/ui/badge';
@@ -18,6 +19,47 @@ const CATEGORY_LABELS: Record<Exclude<SosCategory, 'TOOL'>, string> = {
   REPAIR: '생활 수리',
   ESCORT: '아동·어르신 동행',
 };
+
+const SOS_TEMPLATES: Array<{
+  label: string;
+  category: Exclude<SosCategory, 'TOOL'>;
+  title: string;
+  locationHint: string;
+  description: string;
+}> = [
+  {
+    label: '📦 생수·쌀 이동',
+    category: 'CARRY',
+    title: '생수 2묶음과 쌀 20kg 현관 안쪽 이동 부탁드려요',
+    locationHint: '광주 광산구 쌍암동 ○○아파트 103동 정문',
+    description:
+      '무릎이 불편해 현관 앞 생수와 쌀을 부엌까지 옮기기 어렵습니다. 5분 정도만 손 빌려주시면 감사하겠습니다.',
+  },
+  {
+    label: '💡 LED 형광등 교체',
+    category: 'REPAIR',
+    title: '안방 LED 형광등 깜빡임 교체 도움 요청 (자재 구비 완료)',
+    locationHint: '광주 광산구 월계동 ○○아파트 인근',
+    description:
+      '새 LED 모듈을 구매해 두었는데 사다리 작업이 불안해 아래에서 잡아주시거나 함께 교체해 주실 이웃을 찾습니다.',
+  },
+  {
+    label: '🎒 초등 하교 안심 동행',
+    category: 'ESCORT',
+    title: '[아이 하교 동행] 초등 2학년 방과후 첨단도서관 안심 동행',
+    locationHint: '광주 광산구 월계동 초등학교 정문 ➔ 첨단도서관',
+    description:
+      '오후 5시 30분 하교 후 도서관까지 도보 10분 함께 걸어주실 정회원(경력조회 승인) 이웃을 구합니다.',
+  },
+  {
+    label: '📚 늘봄 돌봄 품앗이',
+    category: 'ESCORT',
+    title: '[늘봄 마을 배움터] 목요일 오후 1시간 그림책 읽기 돌봄 품앗이',
+    locationHint: '광주 광산구 첨단종합사회복지관 1층 마을배움터',
+    description:
+      '맞벌이 가정 아이 3명과 함께 그림책을 읽고 간식을 챙겨주실 정회원 이웃을 찾습니다. (1365 봉사시간 적립)',
+  },
+];
 
 interface SosListViewProps {
   items: SosBoardItem[];
@@ -32,7 +74,8 @@ interface SosListViewProps {
 }
 
 /**
- * 3단계 이어지GO 탭 1: [생활 품앗이 SOS] (무거운 짐, 형광등 교체, 아동·병원 동행).
+ * 3단계 이어지GO 탭 1: [생활 품앗이 SOS].
+ * - 3단계 절차 가이드 + 원클릭 예시 템플릿 4종 제공
  */
 export function SosListView({
   items,
@@ -83,6 +126,38 @@ export function SosListView({
           onSubmit={(e) => void handleSubmit(e)}
           className="space-y-3 rounded-2xl border-2 border-[#1E3A8A] bg-white p-4 shadow-sm"
         >
+          {/* 3단계 절차 가이드 */}
+          <ol className="grid grid-cols-3 gap-1 rounded-xl bg-blue-50 p-2 text-center text-[11px] font-bold text-[#1E3A8A]">
+            <li className="rounded-lg bg-white py-1">① 예시 선택</li>
+            <li className="rounded-lg bg-white py-1">② 동·시간 수정</li>
+            <li className="rounded-lg bg-white py-1">③ 안심 등록</li>
+          </ol>
+
+          {/* 원클릭 SOS 예시 칩 */}
+          <div className="space-y-1.5">
+            <p className="inline-flex items-center gap-1 text-xs font-bold text-[#246BEB]">
+              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+              <span>예시를 누르면 바로 채워져요</span>
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {SOS_TEMPLATES.map((tpl) => (
+                <button
+                  key={tpl.label}
+                  type="button"
+                  onClick={() => {
+                    setCategory(tpl.category);
+                    setTitle(tpl.title);
+                    setLocationHint(tpl.locationHint);
+                    setDescription(tpl.description);
+                  }}
+                  className="min-h-10 rounded-full border border-blue-300 bg-blue-50/70 px-3 py-1 text-xs font-bold text-[#1E3A8A] hover:bg-blue-100"
+                >
+                  {tpl.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-3 gap-1.5">
             {(['CARRY', 'REPAIR', 'ESCORT'] as const).map((cat) => (
               <button
@@ -108,14 +183,20 @@ export function SosListView({
             placeholder="도움이 필요한 내용을 간단히 적어주세요"
             className="min-h-12 w-full rounded-xl border-2 border-slate-300 px-3.5 text-sm text-[#1D1D1D]"
           />
-          <input
-            type="text"
-            required
-            value={locationHint}
-            onChange={(e) => setLocationHint(e.target.value)}
-            placeholder="위치 힌트 (예: 첨단 쌍암동 ○○아파트 정문)"
-            className="min-h-12 w-full rounded-xl border-2 border-slate-300 px-3.5 text-sm text-[#1D1D1D]"
-          />
+          <div>
+            <input
+              type="text"
+              required
+              value={locationHint}
+              onChange={(e) => setLocationHint(e.target.value)}
+              placeholder="위치 힌트 (예: 첨단 쌍암동 ○○아파트 정문)"
+              className="min-h-12 w-full rounded-xl border-2 border-slate-300 px-3.5 text-sm text-[#1D1D1D]"
+            />
+            <p className="mt-1 text-[11px] text-[#555555]">
+              ※ 상세 호수나 전화번호는 적지 마세요. 매칭 후 050 안심 톡방으로
+              연결됩니다.
+            </p>
+          </div>
           <textarea
             rows={2}
             required

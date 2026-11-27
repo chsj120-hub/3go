@@ -142,15 +142,16 @@ const FIXED_2GO_CALENDAR: CommunityClassItem[] = [
     id: 'prog-2go-april-manitto',
     stage: '2GO',
     monthTag: '4월',
-    title: '봄날 쌍암 생태공원 버디 투어 & 다이소 5천원 마니또 선물 교환',
+    title:
+      '봄 소풍 동네네컷 · 다이소 5천원 마니또 & 씨앗·모종 도서관',
     category: '생태버디',
-    agencyName: '광산 첨단 마을안심 TF 1기',
-    location: '광주 광산구 쌍암공원 호수 산책로 집결',
+    agencyName: '광산 첨단 마을안심 TF 1기 × 첨단도서관',
+    location: '광주 광산구 쌍암공원 호수 산책로 & 첨단도서관 로비',
     description:
-      '부담 없는 5천원 상한선 마니또 선물과 함께 2인 1조 세대 버디로 봄꽃 호수길을 산책합니다.',
+      '5천원 마니또 선물 교환과 함께 씨앗·모종 도서관에서 상추·방울토마토 씨앗을 무료 대출받아 어르신 재배 노하우·학생 씨앗 봉투 일러스트를 결합합니다.',
     maxCapacity: 24,
     currentApplicants: 19,
-    eventDateLabel: '4월 둘째 토요일 10:30',
+    eventDateLabel: '4월 둘째 토요일 10:30 (4주 텃밭 챌린지)',
     isZeroFee: true,
   },
   {
@@ -211,6 +212,22 @@ const FIXED_2GO_CALENDAR: CommunityClassItem[] = [
     maxCapacity: 40,
     currentApplicants: 27,
     eventDateLabel: '9~10월 축제 주말 11:00',
+    isZeroFee: true,
+  },
+  {
+    id: 'prog-2go-repair-cafe',
+    stage: '2GO',
+    monthTag: '분기·방학',
+    title:
+      '팝업 폐가전 분해·수리 DIY 교실 (리페어 카페 & 부품 은행)',
+    category: '리페어카페',
+    agencyName: '광산시니어클럽 은퇴장인 × 청소년·공고생 봉사단',
+    location: '광주 광산구 첨단1동 공유공방 & 학교 실과실',
+    description:
+      '선풍기·드라이어·스탠드 분해 수리(청소년 봉사 인증)와 PC 먼지 청소·RAM/SSD 업그레이드! 정상 부품은 부품·공구 은행에 보관해 자원순환을 실천합니다.',
+    maxCapacity: 18,
+    currentApplicants: 13,
+    eventDateLabel: '분기별·방학 팝업 주간 토요일 13:00',
     isZeroFee: true,
   },
   {
